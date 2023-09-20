@@ -18,6 +18,46 @@ To set up the CI/CD workflow for your React.js application, follow these steps:
 
 1. **Copy the CI/CD Configuration**:
 
+```
+   name: Build and Deploy
+   on:
+     push:
+       branches:
+         - main  # Change this to your main branch name
+   jobs:
+     build:
+       runs-on: ubuntu-latest  # You can choose a different runner, if needed
+       steps:
+       - name: Checkout code
+         uses: actions/checkout@v2
+   
+       - name: Setup Node.js
+         uses: actions/setup-node@v2
+         with:
+           node-version: '12'  # Change this to your desired Node.js version
+   
+       - name: Install dependencies and build
+         env: 
+           REACT_APP_ENCRYPTION_SECRET_KEY: ${{ secrets.REACT_APP_ENCRYPTION_SECRET_KEY }}
+           REACT_APP_ENCRYPTION_INITIAL_VECTOR: ${{ secrets.REACT_APP_ENCRYPTION_INITIAL_VECTOR }}
+           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+           REACT_APP_AUTH_TOKEN: ${{ secrets.REACT_APP_AUTH_TOKEN }}
+           
+         run: |
+           npm install
+           npm run build
+   
+       - name: rsync deployments
+         uses: burnett01/rsync-deployments@6.0.0
+         with:
+           switches: -avzr --delete
+           path: build/
+           remote_path: /var/www/html/build
+           remote_host: ${{ secrets.HOST }}
+           remote_user: ${{ secrets.USER }}
+           remote_key: ${{ secrets.DEPLOY_KEY }}
+```   
+   
    Copy the provided CI/CD configuration code and create a file named `.github/workflows/main.yml` in the root of your GitHub repository. Paste the copied code into this file.
 
 2. **Configure the Main Branch**:
