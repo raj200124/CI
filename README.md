@@ -6,16 +6,11 @@ This repository contains a GitHub Actions workflow for automating the deployment
 
 Before setting up this CI/CD workflow, make sure you have the following prerequisites in place:
 
-1. **GitHub Repository**: You should have your React.js project hosted in a GitHub repository.
-
-2. **GitHub Secrets**: Configure the following secrets in your GitHub repository settings:
-   - `REACT_APP_ENCRYPTION_SECRET_KEY`: Your encryption secret key
-   - `REACT_APP_ENCRYPTION_INITIAL_VECTOR`: Your encryption initial vector
-   - `REACT_APP_API_URL`: The URL of your API
-   - `REACT_APP_AUTH_TOKEN`: Your authentication token
-   - `HOST`: The hostname or IP address of your deployment server
-   - `USER`: The SSH username for the deployment server
-   - `DEPLOY_KEY`: The SSH private key for authenticating with the deployment server
+1. Your React.js application code hosted on a GitHub repository.
+2. Access to a remote server where you want to deploy the React.js application.
+3. Node.js version 12 or higher installed on the remote server.
+4. Nginx installed on the server.
+5. SSH access to the remote server.
 
 ## Workflow Setup
 
