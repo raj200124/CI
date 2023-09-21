@@ -8,7 +8,7 @@ Before setting up this CI/CD workflow, make sure you have the following prerequi
 
 1. Your React.js application code hosted on a GitHub repository.
 2. Access to a remote server where you want to deploy the React.js application.
-3. Node.js version 12 or higher installed on the remote server.
+3. Node.js installed on the remote server.
 4. Nginx installed on the server.
 5. SSH access to the remote server.
 
