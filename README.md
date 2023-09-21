@@ -12,6 +12,14 @@ Before setting up this CI/CD workflow, make sure you have the following prerequi
 4. Nginx installed on the server.
 5. SSH access to the remote server.
 
+## Setting Secrets
+To use this workflow, you need to set the following secrets in your GitHub repository:
+
+- HOST: The hostname or IP address of your remote server.
+- USER: The SSH username for accessing the remote server.
+- DEPLOY_KEY: The SSH private key for authentication when deploying to the remote server.
+- Other ENV variables.
+
 ## Workflow Setup
 
 To set up the CI/CD workflow for your React.js application, follow these steps:
