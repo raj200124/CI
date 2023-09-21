@@ -60,7 +60,7 @@ To set up the CI/CD workflow for your React.js application, follow these steps:
          with:
            switches: -avzr --delete
            path: build/
-           remote_path: /var/www/html/build
+           remote_path: /var/www/html
            remote_host: ${{ secrets.HOST }}
            remote_user: ${{ secrets.USER }}
            remote_key: ${{ secrets.DEPLOY_KEY }}
@@ -78,7 +78,7 @@ To set up the CI/CD workflow for your React.js application, follow these steps:
 
 4. **Deployment Path**:
 
-   Update the `remote_path` under the `rsync deployments` step to specify the path on your deployment server where you want to deploy the React.js application. In the provided example, it deploys to `/var/www/html/build`, but you can change it according to your server's setup.
+   Update the `remote_path` under the `rsync deployments` step to specify the path on your deployment server where you want to deploy the React.js application. In the provided example, it deploys to `/var/www/html`, but you can change it according to your server's setup.
 
 ## Workflow Explanation
 
